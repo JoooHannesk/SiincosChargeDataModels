@@ -53,7 +53,7 @@ public enum LockState: UInt {
     case unknown = 2
 
     /// Represent ``LockState`` as ``Status``.
-    var asStatus: Status {
+    public var asStatus: Status {
         switch self {
         case .locked: return .disabled
         case .unlocked: return .enabled
@@ -76,9 +76,9 @@ public enum Status: UInt8, Codable, CaseIterable {
 ///
 /// Electric current in a 3-phase grid
 public struct ElectricCurrent3PhaseGrid: Codable, Hashable {
-    var currentL1: Measurement<UnitElectricCurrent>?
-    var currentL2: Measurement<UnitElectricCurrent>?
-    var currentL3: Measurement<UnitElectricCurrent>?
+    public var currentL1: Measurement<UnitElectricCurrent>?
+    public var currentL2: Measurement<UnitElectricCurrent>?
+    public var currentL3: Measurement<UnitElectricCurrent>?
 
     /// Get Average Current
     ///
@@ -99,17 +99,17 @@ public struct ElectricCurrent3PhaseGrid: Codable, Hashable {
 /// Electric voltage in a 3-Phase grid
 /// - Note: Assuming potential difference between L and N, not between Lx and Ly
 public struct ElectricVoltage3PhaseGrid: Codable, Hashable {
-    var voltageL1: Measurement<UnitElectricPotentialDifference>?
-    var voltageL2: Measurement<UnitElectricPotentialDifference>?
-    var voltageL3: Measurement<UnitElectricPotentialDifference>?
+    public var voltageL1: Measurement<UnitElectricPotentialDifference>?
+    public var voltageL2: Measurement<UnitElectricPotentialDifference>?
+    public var voltageL3: Measurement<UnitElectricPotentialDifference>?
 }
 
 /// Electric Power
 ///
 /// Electric power in a 3-phase grid
 public struct ElectricPower3PhaseGrid: Codable, Hashable {
-    var powerL1: Measurement<UnitPower>?
-    var powerL2: Measurement<UnitPower>?
-    var powerL3: Measurement<UnitPower>?
-    var powerTotal: Measurement<UnitPower>
+    public var powerL1: Measurement<UnitPower>?
+    public var powerL2: Measurement<UnitPower>?
+    public var powerL3: Measurement<UnitPower>?
+    public var powerTotal: Measurement<UnitPower>
 }
