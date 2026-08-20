@@ -66,7 +66,7 @@ public enum LockState: UInt, Sendable {
 ///
 /// Represent a simple status: `.enabled` or `.disabled` and `.unknown`
 /// if not supported by a device or functionality
-public enum Status: UInt8, Codable, CaseIterable {
+public enum Status: UInt8, Codable, CaseIterable, Sendable {
     case disabled = 0
     case enabled = 1
     case unknown = 2
