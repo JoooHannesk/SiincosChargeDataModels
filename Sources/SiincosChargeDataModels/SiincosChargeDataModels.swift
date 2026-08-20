@@ -10,7 +10,7 @@ import Foundation
 /// Harmonized Charger States
 ///
 /// Siincos Charge Edge supports the following harmonized charger states.
-public enum ChargerState: String, Codable, CaseIterable {
+public enum ChargerState: String, Codable, CaseIterable, Sendable {
 
     /// EV is charging
     case charging
@@ -75,7 +75,7 @@ public enum Status: UInt8, Codable, CaseIterable {
 /// Electric Current
 ///
 /// Electric current in a 3-phase grid
-public struct ElectricCurrent3PhaseGrid: Codable, Hashable {
+public struct ElectricCurrent3PhaseGrid: Codable, Hashable, Sendable {
     public var currentL1: Measurement<UnitElectricCurrent>?
     public var currentL2: Measurement<UnitElectricCurrent>?
     public var currentL3: Measurement<UnitElectricCurrent>?
@@ -104,7 +104,7 @@ public struct ElectricCurrent3PhaseGrid: Codable, Hashable {
 ///
 /// Electric voltage in a 3-Phase grid
 /// - Note: Assuming potential difference between L and N, not between Lx and Ly
-public struct ElectricVoltage3PhaseGrid: Codable, Hashable {
+public struct ElectricVoltage3PhaseGrid: Codable, Hashable, Sendable {
     public var voltageL1: Measurement<UnitElectricPotentialDifference>?
     public var voltageL2: Measurement<UnitElectricPotentialDifference>?
     public var voltageL3: Measurement<UnitElectricPotentialDifference>?
@@ -119,7 +119,7 @@ public struct ElectricVoltage3PhaseGrid: Codable, Hashable {
 /// Electric Power
 ///
 /// Electric power in a 3-phase grid
-public struct ElectricPower3PhaseGrid: Codable, Hashable {
+public struct ElectricPower3PhaseGrid: Codable, Hashable, Sendable {
     public var powerL1: Measurement<UnitPower>?
     public var powerL2: Measurement<UnitPower>?
     public var powerL3: Measurement<UnitPower>?
