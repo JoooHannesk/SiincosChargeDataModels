@@ -28,7 +28,7 @@ public enum ChargerState: String, Codable, CaseIterable {
 /// Harmonized EV States
 ///
 /// Siincos Charge Edge supports the following harmonized EV states.
-public enum EVState: String, Codable, CaseIterable {
+public enum EVState: String, Codable, CaseIterable, Sendable {
 
     /// EV is plugged into charger
     case pluggedIn
@@ -47,7 +47,7 @@ public enum EVState: String, Codable, CaseIterable {
 /// Lock States
 ///
 /// States representing a generic lock
-public enum LockState: UInt {
+public enum LockState: UInt, Sendable {
     case locked = 0
     case unlocked = 1
     case unknown = 2
@@ -80,6 +80,12 @@ public struct ElectricCurrent3PhaseGrid: Codable, Hashable {
     public var currentL2: Measurement<UnitElectricCurrent>?
     public var currentL3: Measurement<UnitElectricCurrent>?
 
+    public init(currentL1: Measurement<UnitElectricCurrent>? = nil, currentL2: Measurement<UnitElectricCurrent>? = nil, currentL3: Measurement<UnitElectricCurrent>? = nil) {
+        self.currentL1 = currentL1
+        self.currentL2 = currentL2
+        self.currentL3 = currentL3
+    }
+
     /// Get Average Current
     ///
     /// Get average current for a 3-phase power grid based on the current on each phase.
@@ -102,6 +108,12 @@ public struct ElectricVoltage3PhaseGrid: Codable, Hashable {
     public var voltageL1: Measurement<UnitElectricPotentialDifference>?
     public var voltageL2: Measurement<UnitElectricPotentialDifference>?
     public var voltageL3: Measurement<UnitElectricPotentialDifference>?
+
+    public init(voltageL1: Measurement<UnitElectricPotentialDifference>? = nil, voltageL2: Measurement<UnitElectricPotentialDifference>? = nil, voltageL3: Measurement<UnitElectricPotentialDifference>? = nil) {
+        self.voltageL1 = voltageL1
+        self.voltageL2 = voltageL2
+        self.voltageL3 = voltageL3
+    }
 }
 
 /// Electric Power
@@ -112,4 +124,11 @@ public struct ElectricPower3PhaseGrid: Codable, Hashable {
     public var powerL2: Measurement<UnitPower>?
     public var powerL3: Measurement<UnitPower>?
     public var powerTotal: Measurement<UnitPower>
+
+    public init(powerL1: Measurement<UnitPower>? = nil, powerL2: Measurement<UnitPower>? = nil, powerL3: Measurement<UnitPower>? = nil, powerTotal: Measurement<UnitPower>) {
+        self.powerL1 = powerL1
+        self.powerL2 = powerL2
+        self.powerL3 = powerL3
+        self.powerTotal = powerTotal
+    }
 }
