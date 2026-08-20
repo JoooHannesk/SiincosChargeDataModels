@@ -10,7 +10,7 @@ import Foundation
 /// Harmonized Charger States
 ///
 /// Siincos Charge Edge supports the following harmonized charger states.
-enum ChargerState: String, Codable, CaseIterable {
+public enum ChargerState: String, Codable, CaseIterable {
 
     /// EV is charging
     case charging
@@ -28,7 +28,7 @@ enum ChargerState: String, Codable, CaseIterable {
 /// Harmonized EV States
 ///
 /// Siincos Charge Edge supports the following harmonized EV states.
-enum EVState: String, Codable, CaseIterable {
+public enum EVState: String, Codable, CaseIterable {
 
     /// EV is plugged into charger
     case pluggedIn
@@ -47,7 +47,7 @@ enum EVState: String, Codable, CaseIterable {
 /// Lock States
 ///
 /// States representing a generic lock
-enum LockState: UInt {
+public enum LockState: UInt {
     case locked = 0
     case unlocked = 1
     case unknown = 2
@@ -66,7 +66,7 @@ enum LockState: UInt {
 ///
 /// Represent a simple status: `.enabled` or `.disabled` and `.unknown`
 /// if not supported by a device or functionality
-enum Status: UInt8, Codable, CaseIterable {
+public enum Status: UInt8, Codable, CaseIterable {
     case disabled = 0
     case enabled = 1
     case unknown = 2
@@ -75,7 +75,7 @@ enum Status: UInt8, Codable, CaseIterable {
 /// Electric Current
 ///
 /// Electric current in a 3-phase grid
-struct ElectricCurrent3PhaseGrid: Codable, Hashable {
+public struct ElectricCurrent3PhaseGrid: Codable, Hashable {
     var currentL1: Measurement<UnitElectricCurrent>?
     var currentL2: Measurement<UnitElectricCurrent>?
     var currentL3: Measurement<UnitElectricCurrent>?
@@ -98,7 +98,7 @@ struct ElectricCurrent3PhaseGrid: Codable, Hashable {
 ///
 /// Electric voltage in a 3-Phase grid
 /// - Note: Assuming potential difference between L and N, not between Lx and Ly
-struct ElectricVoltage3PhaseGrid: Codable, Hashable {
+public struct ElectricVoltage3PhaseGrid: Codable, Hashable {
     var voltageL1: Measurement<UnitElectricPotentialDifference>?
     var voltageL2: Measurement<UnitElectricPotentialDifference>?
     var voltageL3: Measurement<UnitElectricPotentialDifference>?
@@ -107,7 +107,7 @@ struct ElectricVoltage3PhaseGrid: Codable, Hashable {
 /// Electric Power
 ///
 /// Electric power in a 3-phase grid
-struct ElectricPower3PhaseGrid: Codable, Hashable {
+public struct ElectricPower3PhaseGrid: Codable, Hashable {
     var powerL1: Measurement<UnitPower>?
     var powerL2: Measurement<UnitPower>?
     var powerL3: Measurement<UnitPower>?
