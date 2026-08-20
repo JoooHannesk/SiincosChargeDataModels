@@ -90,7 +90,7 @@ public struct ElectricCurrent3PhaseGrid: Codable, Hashable, Sendable {
     ///
     /// Get average current for a 3-phase power grid based on the current on each phase.
     /// Ignore phases with 0.0 current, as this indicates that they are not in use.
-    var currentAverage: Measurement<UnitElectricCurrent> {
+    public var currentAverage: Measurement<UnitElectricCurrent> {
         let valid: [Measurement<UnitElectricCurrent>] = [currentL1, currentL2, currentL3]
             .compactMap { $0 }
             .filter { $0.value != 0.0 }
