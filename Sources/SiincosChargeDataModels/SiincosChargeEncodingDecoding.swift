@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension JSONEncoder {
+public extension JSONEncoder {
 
     /// Encoder configured for the project-wide JSON conventions
     ///
@@ -28,7 +28,7 @@ extension JSONEncoder {
     }
 }
 
-extension JSONDecoder {
+public extension JSONDecoder {
 
     /// Decoder configured for the project-wide JSON conventions
     ///
