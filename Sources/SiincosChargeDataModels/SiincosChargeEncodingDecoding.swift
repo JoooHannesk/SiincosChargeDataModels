@@ -22,7 +22,7 @@ public extension JSONEncoder {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .custom { date, encoder in
             var container = encoder.singleValueContainer()
-            try container.encode(Int64((date.timeIntervalSince1970 * 1000).rounded()))
+            try container.encode(date.timeIntervalSince1970InMilliseconds)
         }
         return encoder
     }
@@ -40,8 +40,19 @@ public extension JSONDecoder {
         decoder.dateDecodingStrategy = .custom { decoder in
             let container = try decoder.singleValueContainer()
             let milliseconds = try container.decode(Int64.self)
-            return Date(timeIntervalSince1970: Double(milliseconds) / 1000)
+            return Date(millisecondsSince1970: milliseconds)
         }
         return decoder
+    }
+}
+
+
+public extension Date {
+    var timeIntervalSince1970InMilliseconds: Int64 {
+        Int64((self.timeIntervalSince1970 * 1000).rounded())
+    }
+
+    init(millisecondsSince1970: Int64) {
+        self.init(timeIntervalSince1970: Double(millisecondsSince1970) / 1000)
     }
 }
